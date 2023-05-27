@@ -1,24 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
 
 function App() {
+  const[backgroundColor, setBackgroundColor ]= useState('white');
+  
+  const handleToggle = () => {
+    const newColor = backgroundColor === 'white' ? 'blue' : 'white';
+    setBackgroundColor(newColor);
+  }
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+       <div style={{ backgroundColor, minHeight: '100vh' }}>
+          <button onClick={handleToggle}>Toggle Background Color</button>
+       </div>
   );
 }
 
